@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petite Fleur SG | Fresh Hand-Tied Bouquets in Singapore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #faf8f5;
+            --cream-dark: #f0ece4;
+            --rose-gold: #c9a96e;
+            --rose-gold-light: #d4b87a;
+            --charcoal: #2c2c2c;
+            --text: #4a4a4a;
+            --text-light: #7a7a7a;
+            --green: #7a9e7e;
+            --green-light: #e8f0e6;
+            --white: #ffffff;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 4px;
+            --font-display: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            --font-body: 'Inter', 'Noto Serif SC', sans-serif;
+            --font-cn: 'Noto Serif SC', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ─── Lang Switch ─── */
+        .lang-switch {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid rgba(201,169,110,0.2);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 2rem;
+            height: 44px;
+            gap: 0;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 14px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            transition: all 0.3s;
+            border-radius: 20px;
+        }
+
+        .lang-btn.active {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .lang-sep {
+            width: 1px;
+            height: 16px;
+            background: rgba(0,0,0,0.1);
+            margin: 0 2px;
+        }
+
+        /* ─── Nav ─── */
+        nav {
+            position: fixed;
+            top: 44px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(250,248,245,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201,169,110,0.15);
+            padding: 0 3rem;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .nav-logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-logo-en {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--charcoal);
+        }
+
+        .nav-logo-cn {
+            font-family: 'ZCOOL XiaoWei', var(--font-cn);
+            font-size: 0.6rem;
+            color: var(--rose-gold);
+            letter-spacing: 0.15em;
+        }
+
+        .nav-logo-cn-name {
+            font-family: 'ZCOOL XiaoWei', var(--font-cn);
+            font-size: 0.72rem;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+            font-weight: 400;
+        }
+
+        .nav-logo-cn-sg {
+            font-family: 'ZCOOL XiaoWei', var(--font-cn);
+            font-size: 0.55rem;
+            color: var(--text-light);
+            letter-spacing: 0.15em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--rose-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--rose-gold); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--charcoal);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.78rem !important;
+            letter-spacing: 0.1em !important;
+            transition: background 0.3s !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--rose-gold) !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 1.5px;
+            background: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #fdf9f3 0%, #f8f4ee 50%, #f0ebe3 100%);
+            overflow: hidden;
+            padding-top: 116px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(201,169,110,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-ornament {
+            position: absolute;
+            top: 130px;
+            right: 8%;
+            width: 320px;
+            height: 320px;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 680px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(201,169,110,0.4);
+            padding: 6px 20px;
+            border-radius: 30px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-cn {
+            font-family: var(--font-cn);
+            font-size: 1.2rem;
+            color: var(--rose-gold);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            margin-bottom: 2rem;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 14px 36px;
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--rose-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201,169,110,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            padding: 14px 36px;
+            border: 1px solid rgba(44,44,44,0.3);
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--charcoal);
+            background: var(--charcoal);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.4;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--charcoal), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* ─── Section Commons ─── */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-cn {
+            font-family: var(--font-cn);
+            font-size: 1rem;
+            color: var(--rose-gold);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+        }
+
+        .section-line {
+            width: 40px;
+            height: 1px;
+            background: var(--rose-gold);
+            margin: 1.5rem auto 0;
+        }
+
+        /* ─── About ─── */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-img-wrap {
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #e8ddd4, #d4c4b0);
+        }
+
+        .about-img-tag {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1.2rem 1.8rem;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .about-feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--green-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ─── Products ─── */
+        .products {
+            background: var(--cream);
+        }
+
+        .product-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-img-wrap {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+        }
+
+        .product-desc {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--charcoal);
+        }
+
+        .product-price-note {
+            font-size: 0.72rem;
+            color: var(--text-light);
+        }
+
+        .product-order-btn {
+            background: var(--charcoal);
+            color: var(--white);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .product-order-btn:hover {
+            background: var(--rose-gold);
+        }
+
+        /* ─── Process ─── */
+        .process {
+            background: var(--white);
+        }
+
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--rose-gold), var(--rose-gold), transparent);
+            opacity: 0.3;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-num {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: 1px solid rgba(201,169,110,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--rose-gold);
+            font-style: italic;
+        }
+
+        .process-step h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ─── Contact ─── */
+        .contact {
+            background: linear-gradient(135deg, #fdf9f3 0%, #f0ebe3 100%);
+        }
+
+        .contact-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--green-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item-text strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--charcoal);
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .contact-item-text span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .contact-item-text a {
+            color: var(--rose-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--charcoal);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            background: var(--cream);
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--rose-gold);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--charcoal);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--rose-gold);
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand .nav-logo-en {
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-brand .nav-logo-cn {
+            color: var(--rose-gold-light);
+        }
+
+        .footer-brand .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand .footer-logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .footer-brand p {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+            font-weight: 300;
+        }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--rose-gold-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-col ul a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-socials a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--rose-gold-light);
+        }
+
+        /* ─── Mobile Menu ─── */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(250,248,245,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 998;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--rose-gold);
+        }
+
+        /* ─── WhatsApp Float ─── */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 900;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* ─── i18n ─── */
+        [lang="zh"] { display: none; }
+        body.zh [lang="en"] { display: none; }
+        body.zh [lang="zh"] { display: block; }
+
+        .inline-zh { display: none; }
+        body.zh .inline-zh { display: inline; }
+        body.zh .inline-en { display: none; }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-img-tag { right: 1rem; bottom: -1rem; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+            .process-steps::before { display: none; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu { display: flex; }
+        }
+
+        @media (max-width: 600px) {
+            .section { padding: 4rem 1.2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .product-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .about-features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Language Switch -->
+<div class="lang-switch">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <div class="lang-sep"></div>
+    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-logo">
+        <img class="nav-logo-img" src="petite_fleur_logo.jpg" alt="Petite Fleur SG Logo">
+        <span class="nav-logo-en">Petite Fleur SG</span>
+        <span>
+            <span class="nav-logo-cn-name" lang="zh">晚秋的小花</span>
+            <span class="nav-logo-cn-sg" lang="zh"> · 新加坡</span>
+        </span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home" class="inline-en">Home</a><a href="#home" class="inline-zh">首页</a></li>
+        <li><a href="#about" class="inline-en">About</a><a href="#about" class="inline-zh">关于我们</a></li>
+        <li><a href="#products" class="inline-en">Bouquets</a><a href="#products" class="inline-zh">花束</a></li>
+        <li><a href="#process" class="inline-en">How It Works</a><a href="#process" class="inline-zh">订购流程</a></li>
+        <li><a href="#contact" class="inline-en">Contact</a><a href="#contact" class="inline-zh">联系我们</a></li>
+        <li><a href="#contact" class="nav-cta inline-en">Order Now</a><a href="#contact" class="nav-cta inline-zh">立即订购</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()" class="inline-en">Home</a><a href="#home" onclick="toggleMenu()" class="inline-zh">首页</a>
+    <a href="#about" onclick="toggleMenu()" class="inline-en">About</a><a href="#about" onclick="toggleMenu()" class="inline-zh">关于我们</a>
+    <a href="#products" onclick="toggleMenu()" class="inline-en">Bouquets</a><a href="#products" onclick="toggleMenu()" class="inline-zh">花束</a>
+    <a href="#process" onclick="toggleMenu()" class="inline-en">How It Works</a><a href="#process" onclick="toggleMenu()" class="inline-zh">订购流程</a>
+    <a href="#contact" onclick="toggleMenu()" class="inline-en">Contact</a><a href="#contact" onclick="toggleMenu()" class="inline-zh">联系我们</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <!-- Decorative SVG ornament -->
+    <svg class="hero-ornament" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="150" cy="150" rx="140" ry="140" stroke="#c9a96e" stroke-width="0.5" opacity="0.5"/>
+        <ellipse cx="150" cy="150" rx="100" ry="100" stroke="#c9a96e" stroke-width="0.5" opacity="0.4"/>
+        <ellipse cx="150" cy="150" rx="60" ry="60" stroke="#c9a96e" stroke-width="0.5" opacity="0.3"/>
+        <path d="M150 10 Q 200 80, 150 150 Q 100 220, 150 290" stroke="#c9a96e" stroke-width="0.5" opacity="0.3" fill="none"/>
+        <path d="M10 150 Q 80 100, 150 150 Q 220 200, 290 150" stroke="#c9a96e" stroke-width="0.5" opacity="0.3" fill="none"/>
+        <circle cx="150" cy="150" r="3" fill="#c9a96e" opacity="0.5"/>
+    </svg>
+
+    <div class="hero-content">
+        <img src="petite_fleur_logo.jpg" alt="Petite Fleur SG" style="width:90px;height:90px;border-radius:50%;object-fit:cover;margin:0 auto 1.5rem;display:block;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+
+        <div class="hero-tag" lang="en">Fresh Hand-Tied Bouquets in Singapore</div>
+        <div class="hero-tag" lang="zh">新加坡 · 新鲜花束</div>
+
+        <h1 lang="en">Petite Fleur SG</h1>
+        <h1 lang="zh">
+            <div style="font-family:'ZCOOL XiaoWei',var(--font-cn); font-size:2.8rem; letter-spacing:0.08em; color:#c9a96e; line-height:1.2;">晚秋的小花</div>
+            <div style="font-family:'ZCOOL XiaoWei',var(--font-cn); font-size:1.4rem; letter-spacing:0.25em; color:#a07850; margin-top:0.3rem;">新加坡</div>
+        </h1>
+
+        <div class="hero-cn">Handcrafted with Love, Delivered with Care</div>
+
+        <p class="hero-desc" lang="en">
+            We craft beautiful, seasonal bouquets for every occasion — birthdays, anniversaries, or simply because someone deserves a little beauty. Each arrangement is hand-tied and delivered fresh to your door across Singapore.
+        </p>
+        <p class="hero-desc" lang="zh">
+            我们为每一个特别的日子精心制作花束——生日、纪念日，或者只是单纯想送一份美好。每束花都由我们亲手扎制，新鲜送达新加坡全岛。
+        </p>
+
+        <div class="hero-btns">
+            <a href="#products" class="btn-primary inline-en">Shop Bouquets</a>
+            <a href="#products" class="btn-primary inline-zh">浏览花束</a>
+            <a href="#contact" class="btn-secondary inline-en">Get in Touch</a>
+            <a href="#contact" class="btn-secondary inline-zh">联系我们</a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span lang="en">Scroll</span>
+        <span lang="zh">下滑</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+    <div class="about-grid">
+        <div class="about-img-wrap">
+            <img class="about-img" src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80" alt="Florist crafting bouquet" loading="lazy">
+            <div class="about-img-tag">
+                <span lang="en">"Every bloom tells a story"</span>
+                <span lang="zh">"每一朵花都有自己的故事"</span>
+            </div>
+        </div>
+        <div class="about-text">
+            <div class="section-tag" lang="en">About Us</div>
+            <div class="section-tag" lang="zh">关于我们</div>
+            <h3 lang="en">Where Elegance Meets Everyday Beauty</h3>
+            <h3 lang="zh">优雅与日常之美相遇的地方</h3>
+
+            <p lang="en">
+                At Petite Fleur SG, we believe that flowers have the power to transform any moment into something extraordinary. Our small but passionate team carefully selects the freshest blooms and designs each bouquet with intention and artistry.
+            </p>
+            <p lang="zh">
+                在 Petite Fleur SG，我们相信鲜花有力量将每一个平凡的时刻变得不平凡。我们的小团队精心挑选最新鲜的花材，以匠心和艺术感设计每一束花。
+            </p>
+            <p lang="en">
+                Whether it's a birthday celebration, a quiet "I'm thinking of you," or a grand anniversary dinner, we're here to help you say it with flowers.
+            </p>
+            <p lang="zh">
+                无论是生日庆典、一句温暖的"我在想你"，还是浪漫的结婚纪念日晚餐，我们都希望帮你用花来表达心意。
+            </p>
+
+            <div class="about-features">
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <span lang="en">Fresh Daily</span>
+                    <span lang="zh">每日鲜花</span>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <span lang="en">Same-Day Delivery</span>
+                    <span lang="zh">当日送达</span>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <span lang="en">Handcrafted</span>
+                    <span lang="zh">手工制作</span>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <span lang="en">Islandwide SG</span>
+                    <span lang="zh">全岛配送</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="section products" id="products">
+    <div class="section-header">
+        <div class="section-tag" lang="en">Our Collection</div>
+        <div class="section-tag" lang="zh">花束系列</div>
+        <h2 class="section-title" lang="en">Hand-Tied Bouquets</h2>
+        <h2 class="section-title" lang="zh">手工花束</h2>
+        <div class="section-cn">精选日常花束</div>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="petite_fleur_rose_garden.jpg" alt="Rose Garden Bouquet" loading="lazy">
+                <div class="product-tag" lang="en">Bestseller</div>
+                <div class="product-tag" lang="zh">畅销款</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name" lang="en">Rose Garden</div>
+                <div class="product-name" lang="zh">玫瑰花园</div>
+                <div class="product-desc" lang="en">12 stems of premium roses with seasonal greenery, wrapped in silk</div>
+                <div class="product-desc" lang="zh">12支优质玫瑰，配以时令绿叶，丝质包装</div>
+                <div class="product-footer">
+                    <div>
+                        <div class="product-price">S$95</div>
+                        <div class="product-price-note" lang="en">hand-tied & wrapped</div>
+                        <div class="product-price-note" lang="zh">手工扎制</div>
+                    </div>
+                    <a href="#contact" class="product-order-btn inline-en">Order</a>
+                    <a href="#contact" class="product-order-btn inline-zh">订购</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=500&q=80" alt="Garden Party Bouquet" loading="lazy">
+                <div class="product-tag" lang="en">Seasonal</div>
+                <div class="product-tag" lang="zh">季节款</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name" lang="en">Garden Party</div>
+                <div class="product-name" lang="zh">花园派对</div>
+                <div class="product-desc" lang="en">Mixed seasonal blooms in a soft pastel palette, perfect for celebrations</div>
+                <div class="product-desc" lang="zh">混合时令鲜花，柔和粉彩色调，适合庆祝时刻</div>
+                <div class="product-footer">
+                    <div>
+                        <div class="product-price">S$98</div>
+                        <div class="product-price-note" lang="en">seasonal selection</div>
+                        <div class="product-price-note" lang="zh">时令精选</div>
+                    </div>
+                    <a href="#contact" class="product-order-btn inline-en">Order</a>
+                    <a href="#contact" class="product-order-btn inline-zh">订购</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=500&q=80" alt="Sunset Romance Bouquet" loading="lazy">
+                <div class="product-tag" lang="en">Romance</div>
+                <div class="product-tag" lang="zh">浪漫款</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name" lang="en">Sunset Romance</div>
+                <div class="product-name" lang="zh">落日浪漫</div>
+                <div class="product-desc" lang="en">Warm-toned bouquet with roses, lilies and delicate foliage</div>
+                <div class="product-desc" lang="zh">暖色调花束，玫瑰、百合与精致叶材组合</div>
+                <div class="product-footer">
+                    <div>
+                        <div class="product-price">S$92</div>
+                        <div class="product-price-note" lang="en">warm & romantic</div>
+                        <div class="product-price-note" lang="zh">温暖浪漫</div>
+                    </div>
+                    <a href="#contact" class="product-order-btn inline-en">Order</a>
+                    <a href="#contact" class="product-order-btn inline-zh">订购</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=500&q=80" alt="Peony Dream Bouquet" loading="lazy">
+                <div class="product-tag" lang="en">Premium</div>
+                <div class="product-tag" lang="zh">精选款</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name" lang="en">Peony Dream</div>
+                <div class="product-name" lang="zh">芍药之梦</div>
+                <div class="product-desc" lang="en">Lush peonies with eucalyptus, a truly luxurious statement piece</div>
+                <div class="product-desc" lang="zh">华丽芍药配尤加利，真正奢华的气质花束</div>
+                <div class="product-footer">
+                    <div>
+                        <div class="product-price">S$99</div>
+                        <div class="product-price-note" lang="en">premium selection</div>
+                        <div class="product-price-note" lang="zh">精选品质</div>
+                    </div>
+                    <a href="#contact" class="product-order-btn inline-en">Order</a>
+                    <a href="#contact" class="product-order-btn inline-zh">订购</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=500&q=80" alt="Pure Elegance Bouquet" loading="lazy">
+                <div class="product-tag" lang="en">Classic</div>
+                <div class="product-tag" lang="zh">经典款</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name" lang="en">Pure Elegance</div>
+                <div class="product-name" lang="zh">纯净优雅</div>
+                <div class="product-desc" lang="en">All-white bouquet with roses, hydrangea and baby's breath for timeless beauty</div>
+                <div class="product-desc" lang="zh">全白玫瑰、绣球与满天星，永恒经典之美</div>
+                <div class="product-footer">
+                    <div>
+                        <div class="product-price">S$90</div>
+                        <div class="product-price-note" lang="en">classic white</div>
+                        <div class="product-price-note" lang="zh">经典白色</div>
+                    </div>
+                    <a href="#contact" class="product-order-btn inline-en">Order</a>
+                    <a href="#contact" class="product-order-btn inline-zh">订购</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;">
+        <p style="font-family:var(--font-display); font-size:1.1rem; color:var(--text-light); margin-bottom:1.5rem; font-style:italic;" lang="en">
+            All bouquets come in our signature Petite Fleur wrapping — ready to gift.
+        </p>
+        <p style="font-family:var(--font-cn); font-size:1rem; color:var(--text-light); margin-bottom:1.5rem;">
+            所有花束均以 Petite Fleur 标志性包装呈现——可直接送礼。
+        </p>
+        <a href="#contact" class="btn-primary inline-en">Customize Your Bouquet</a>
+        <a href="#contact" class="btn-primary inline-zh">定制您的花束</a>
+    </div>
+</section>
+
+<!-- Process -->
+<section class="section process" id="process">
+    <div class="section-header">
+        <div class="section-tag" lang="en">How It Works</div>
+        <div class="section-tag" lang="zh">订购流程</div>
+        <h2 class="section-title" lang="en">Simple & Delightful</h2>
+        <h2 class="section-title" lang="zh">简单 · 愉悦</h2>
+        <div class="section-cn">订购只需四步</div>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="process-steps">
+        <div class="process-step">
+            <div class="process-num">I</div>
+            <h4 lang="en">Choose</h4>
+            <h4 lang="zh">选择</h4>
+            <p lang="en">Browse our collection and pick a bouquet that speaks to you</p>
+            <p lang="zh">浏览我们的系列，选择心仪的花束</p>
+        </div>
+        <div class="process-step">
+            <div class="process-num">II</div>
+            <h4 lang="en">Message Us</h4>
+            <h4 lang="zh">联系我们</h4>
+            <p lang="en">Send us a message on WhatsApp with your selection and details</p>
+            <p lang="zh">通过 WhatsApp 发送消息，告知您的选择和详情</p>
+        </div>
+        <div class="process-step">
+            <div class="process-num">III</div>
+            <h4 lang="en">We Craft</h4>
+            <h4 lang="zh">精心制作</h4>
+            <p lang="en">Our florist hand-ties your bouquet with care on the day</p>
+            <p lang="zh">花艺师在当天亲手扎制您的花束</p>
+        </div>
+        <div class="process-step">
+            <div class="process-num">IV</div>
+            <h4 lang="en">Delivered</h4>
+            <h4 lang="zh">送达</h4>
+            <p lang="en">Fresh to your doorstep or your recipient's, islandwide</p>
+            <p lang="zh">新鲜送达您的门口或收礼人处，全岛覆盖</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+    <div class="section-header">
+        <div class="section-tag" lang="en">Get in Touch</div>
+        <div class="section-tag" lang="zh">联系我们</div>
+        <h2 class="section-title" lang="en">Let's Talk Flowers</h2>
+        <h2 class="section-title" lang="zh">聊聊花</h2>
+        <div class="section-cn">告诉我们您的需求</div>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3 lang="en">We'd love to hear from you</h3>
+            <h3 lang="zh">期待与您的交流</h3>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <strong lang="en">Email</strong>
+                    <strong lang="zh">邮箱</strong>
+                    <span><a href="mailto:lclc393@gmail.com">lclc393@gmail.com</a></span>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <strong lang="en">Delivery Area</strong>
+                    <strong lang="zh">配送范围</strong>
+                    <span lang="en">Singapore Islandwide · We deliver to all areas across Singapore</span>
+                    <span lang="zh">新加坡全岛 · 我们配送至所有地区</span>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7a9e7e" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <strong lang="en">Response Time</strong>
+                    <strong lang="zh">回复时间</strong>
+                    <span lang="en">We typically respond within 1–2 hours during business hours</span>
+                    <span lang="zh">工作时间通常在 1–2 小时内回复</span>
+                </div>
+            </div>
+
+            <div style="margin-top:2rem; padding:1.5rem; background:var(--cream); border-radius:6px; border-left:3px solid var(--rose-gold);">
+                <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7;" lang="en">
+                    <strong style="color:var(--charcoal);">Custom orders welcome!</strong><br>
+                    Want a specific colour, size, or occasion bouquet? Message us — we'll do our best to make it happen.
+                </p>
+                <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7;" lang="zh">
+                    <strong style="color:var(--charcoal);">接受定制订单！</strong><br>
+                    想要特定颜色、尺寸或特殊场合的花束？联系我们——我们尽力满足您的需求。
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <form id="orderForm" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label lang="en">Your Name</label>
+                        <label lang="zh">您的名字</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label lang="en">Email / WhatsApp</label>
+                        <label lang="zh">邮箱 / WhatsApp</label>
+                        <input type="text" name="contact" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label lang="en">Bouquet Interest</label>
+                    <label lang="zh">感兴趣的花束</label>
+                    <select name="bouquet">
+                        <option value="" lang="en">— Select a bouquet —</option>
+                        <option value="" lang="zh">— 选择花束 —</option>
+                        <option value="Rose Garden — S$95" lang="en">Rose Garden — S$95</option>
+                        <option value="Rose Garden — S$95" lang="zh">玫瑰花园 — S$95</option>
+                        <option value="Garden Party — S$98" lang="en">Garden Party — S$98</option>
+                        <option value="Garden Party — S$98" lang="zh">花园派对 — S$98</option>
+                        <option value="Sunset Romance — S$92" lang="en">Sunset Romance — S$92</option>
+                        <option value="Sunset Romance — S$92" lang="zh">落日浪漫 — S$92</option>
+                        <option value="Peony Dream — S$99" lang="en">Peony Dream — S$99</option>
+                        <option value="Peony Dream — S$99" lang="zh">芍药之梦 — S$99</option>
+                        <option value="Pure Elegance — S$90" lang="en">Pure Elegance — S$90</option>
+                        <option value="Pure Elegance — S$90" lang="zh">纯净优雅 — S$90</option>
+                        <option value="Custom / 定制" lang="en">Custom / Other</option>
+                        <option value="Custom / 定制" lang="zh">定制 / 其他</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label lang="en">Delivery Date</label>
+                        <label lang="zh">配送日期</label>
+                        <input type="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label lang="en">Budget (SGD)</label>
+                        <label lang="zh">预算 (新币)</label>
+                        <input type="text" name="budget" placeholder="e.g. $90–$100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label lang="en">Special Requests / Message</label>
+                    <label lang="zh">特别要求 / 留言</label>
+                    <textarea name="message" lang="en" placeholder="Colour preferences, delivery address, card message..."></textarea>
+                    <textarea name="message" lang="zh" placeholder="颜色偏好、配送地址、贺卡留言..."></textarea>
+                </div>
+                <button type="submit" class="form-submit inline-en">Send Enquiry</button>
+                <button type="submit" class="form-submit inline-zh">发送咨询</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img class="footer-logo-img" src="petite_fleur_logo.jpg" alt="Petite Fleur SG Logo">
+                <div>
+                    <div class="nav-logo-en">Petite Fleur SG</div>
+                    <span class="nav-logo-cn-name" lang="zh" style="font-size:0.85rem;color:#c9a96e;">晚秋的小花</span>
+                    <span lang="zh" style="font-family:'ZCOOL XiaoWei',var(--font-cn);font-size:0.6rem;color:rgba(255,255,255,0.45);letter-spacing:0.15em;"> · 新加坡</span>
+                </div>
+            </div>
+            <p lang="en">
+                Handcrafted bouquets for life's beautiful moments. We deliver fresh, seasonal flowers across Singapore with care and intention.
+            </p>
+            <p lang="zh">
+                为生命的美好时刻精心制作花束。我们用心用意，将新鲜时令的鲜花配送至新加坡各地。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4 lang="en">Quick Links</h4>
+            <h4 lang="zh">快速链接</h4>
+            <ul>
+                <li><a href="#home" class="inline-en">Home</a><a href="#home" class="inline-zh">首页</a></li>
+                <li><a href="#about" class="inline-en">About Us</a><a href="#about" class="inline-zh">关于我们</a></li>
+                <li><a href="#products" class="inline-en">Bouquets</a><a href="#products" class="inline-zh">花束</a></li>
+                <li><a href="#contact" class="inline-en">Contact</a><a href="#contact" class="inline-zh">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 lang="en">Contact</h4>
+            <h4 lang="zh">联系我们</h4>
+            <ul>
+                <li><a href="mailto:lclc393@gmail.com">lclc393@gmail.com</a></li>
+                <li><span style="font-size:0.85rem; color:rgba(255,255,255,0.6);" lang="en">Singapore Islandwide</span><span style="font-size:0.85rem; color:rgba(255,255,255,0.6);" lang="zh">新加坡全岛</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span lang="en">&copy; 2026 Petite Fleur SG. All rights reserved.</span>
+        <span lang="zh">&copy; 2026 Petite Fleur SG. 保留所有权利。</span>
+        <div class="footer-socials">
+            <a href="#" lang="en">Instagram</a>
+            <a href="#" lang="zh">Instagram</a>
+            <span style="margin:0 0.5rem; opacity:0.3;">|</span>
+            <a href="mailto:lclc393@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float (add number when available) -->
+<!-- <a class="wa-float" href="https://wa.me/65XXXXXXXX" target="_blank" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a> -->
+
+<script>
+    // ── Language Switch ──
+    function setLang(lang) {
+        document.body.classList.toggle('zh', lang === 'zh');
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+        });
+        localStorage.setItem('pfLang', lang);
+    }
+
+    // Restore lang preference
+    const savedLang = localStorage.getItem('pfLang');
+    if (savedLang) setLang(savedLang);
+
+    // ── Nav Scroll Effect ──
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── Mobile Menu ──
+    function toggleMenu() {
+        document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // ── Smooth Scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ── Form Submit ──
+    function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+        const lang = document.body.classList.contains('zh') ? 'zh' : 'en';
+
+        const msg = lang === 'en'
+            ? `Thank you! We've received your enquiry and will get back to you within 1–2 hours. 🌸`
+            : `感谢您的咨询！我们会在 1-2 小时内回复您。🌸`;
+
+        form.innerHTML = `<div style="text-align:center; padding:3rem 1rem; font-family:var(--font-display); font-size:1.3rem; color:var(--charcoal);">${msg}</div>`;
+    }
+</script>
+
+</body>
+</html>
