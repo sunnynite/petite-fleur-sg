@@ -727,6 +727,59 @@
             color: var(--charcoal);
         }
 
+        .payment-terms {
+            background: var(--cream-dark);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(201,169,110,0.2);
+        }
+
+        .payment-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .payment-item .payment-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--rose-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .payment-item strong {
+            display: block;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .payment-item p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .payment-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .contact-form {
             background: var(--white);
             padding: 2.5rem;
@@ -1398,6 +1451,32 @@
             </div>
         </div>
 
+        <!-- Payment Terms -->
+        <div class="payment-terms">
+            <h3 lang="en" style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:1rem;color:var(--charcoal);">💳 Payment Terms</h3>
+            <h3 lang="zh" style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:1rem;color:var(--charcoal);">💳 付款条款</h3>
+            <div class="payment-box">
+                <div class="payment-item">
+                    <span class="payment-icon">1</span>
+                    <div>
+                        <strong lang="en">Deposit (10%)</strong>
+                        <strong lang="zh">定金 (10%)</strong>
+                        <p lang="en">Pay upon confirmation to secure your order.</p>
+                        <p lang="zh">确认订单时支付。</p>
+                    </div>
+                </div>
+                <div class="payment-item">
+                    <span class="payment-icon">2</span>
+                    <div>
+                        <strong lang="en">Balance Payment</strong>
+                        <strong lang="zh">余款</strong>
+                        <p lang="en">Settle the remaining amount upon delivery.</p>
+                        <p lang="zh">送花时一并收取。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="contact-form">
             <form id="orderForm" onsubmit="handleSubmit(event)">
                 <div class="form-row">
@@ -1445,10 +1524,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label lang="en">Special Requests / Message</label>
-                    <label lang="zh">特别要求 / 留言</label>
-                    <textarea name="message" lang="en" placeholder="Colour preferences, delivery address, card message..."></textarea>
-                    <textarea name="message" lang="zh" placeholder="颜色偏好、配送地址、贺卡留言..."></textarea>
+                    <label lang="en">Delivery Address</label>
+                    <label lang="zh">送花地址</label>
+                    <textarea name="address" lang="en" placeholder="Full delivery address in Singapore..." required></textarea>
+                    <textarea name="address" lang="zh" placeholder="新加坡完整送花地址..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label lang="en">Special Requests / Card Message</label>
+                    <label lang="zh">特别要求 / 贺卡留言</label>
+                    <textarea name="message" lang="en" placeholder="Colour preferences, card message, etc..."></textarea>
+                    <textarea name="message" lang="zh" placeholder="颜色偏好、贺卡留言等..."></textarea>
                 </div>
                 <button type="submit" class="form-submit inline-en">Send Enquiry</button>
                 <button type="submit" class="form-submit inline-zh">发送咨询</button>
